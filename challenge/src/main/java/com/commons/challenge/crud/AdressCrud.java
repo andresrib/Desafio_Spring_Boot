@@ -72,7 +72,7 @@ public class AdressCrud {
             } 
             if(apiData.get("erro") != null){
                 JsonNode jsonNode = objectMapper.createObjectNode()
-                .put("erro", "cpf nao foi encontrado");
+                .put("erro", "cep nao foi encontrado");
                 return jsonNode;
             }            
             double fee = CalculateFee(cepString);
