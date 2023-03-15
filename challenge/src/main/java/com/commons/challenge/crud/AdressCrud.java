@@ -9,7 +9,7 @@ import net.minidev.json.JSONObject;
 
 public class AdressCrud {
 
-    public static String ValidateCep(JSONObject cep){
+    public String ValidateCep(JSONObject cep){
         String cepString = cep.getAsString("cep");
         cepString = cepString.replaceAll("-", "");
         cepString = cepString.replaceAll(" ", "");
@@ -21,7 +21,7 @@ public class AdressCrud {
         
     }
 
-    public static JSONObject ConsumeAPI(String cep){
+    public JSONObject ConsumeAPI(String cep){
         RestTemplate restTemplate = new RestTemplate();
         String url = "https://viacep.com.br/ws/" + cep + "/json";
         try {
@@ -33,7 +33,7 @@ public class AdressCrud {
         
       }
     
-    public static double CalculateFee(String cep){
+    public double CalculateFee(String cep){
         double fee = 0;
         int cepInt = Integer.parseInt(cep);
         if(01000000 <= cepInt && cepInt <= 39999999)
@@ -54,7 +54,7 @@ public class AdressCrud {
         
     }
 
-    public static JsonNode ConsultAdress(JSONObject cep){
+    public JsonNode ConsultAdress(JSONObject cep){
         ObjectMapper objectMapper = new ObjectMapper();
         
         String cepString = ValidateCep(cep);

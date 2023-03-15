@@ -1,6 +1,5 @@
 package com.commons.challenge.routes;
 
-import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RestController;
@@ -18,7 +17,8 @@ public class AdressRouter {
         produces = "application/Json"
         )
     public JsonNode consultAdress(@RequestBody JSONObject cep){
-        JsonNode data = AdressCrud.ConsultAdress(cep);
+        AdressCrud adressCrud = new AdressCrud();
+        JsonNode data = adressCrud.ConsultAdress(cep);
         return data;
     }
 

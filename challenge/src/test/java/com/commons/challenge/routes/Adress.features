@@ -1,0 +1,6 @@
+Feature: Address feature
+
+Scenario: Client makes POST call to consult address
+  Given the client have an endpoint to consult an address
+  When the client send a valid CEP
+  Then the client should receive a valid address data
